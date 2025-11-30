@@ -14,7 +14,7 @@ Includes user registration & login, product management, and a shopping cart syst
 - [Go Project Setup](#go-project-setup)
 - [Configuration](#configuration)
 - [Running the API](#running-the-api)
-- [## API Endpoints](#api-endpoints)
+- [API Endpoints](#api-endpoints)
 
 ---
 
@@ -154,4 +154,5 @@ JSON body:
   "unitPrice": 99.99
 }
 ```
+
 
