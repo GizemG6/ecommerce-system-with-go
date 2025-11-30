@@ -1,6 +1,7 @@
 # E-Commerce System with Go
 
-This is a simple e-commerce system built with **Go**, **PostgreSQL**, and **Docker**. It includes user registration, login, product management, and a shopping cart.
+A full-featured e-commerce system built in **Go**, using **PostgreSQL** as the database and **Docker** for easy setup.  
+Includes user registration & login, product management, and a shopping cart system.
 
 ---
 
@@ -50,3 +51,4 @@ This is a simple e-commerce system built with **Go**, **PostgreSQL**, and **Dock
 
 ```bash
 docker pull postgres
+
