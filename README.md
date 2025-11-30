@@ -47,8 +47,110 @@ Includes user registration & login, product management, and a shopping cart syst
 
 ## Setup with Docker
 
-1. Pull the PostgreSQL image:
+Run PostgreSQL container:
 
 ```bash
-docker pull postgres
+docker run --name ecommerce-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456 -e POSTGRES_DB=ecommerce -p 5432:5432 -d postgres
+```
 
+## Go Project Setup
+
+Initialize Go module:
+
+```bash
+go mod tidy
+```
+
+Install dependencies:
+
+```bash
+go get github.com/gorilla/mux
+go get github.com/lib/pq
+go get github.com/google/uuid
+```
+
+## Configuration
+
+In main.go, configure database connection:
+
+```go
+connStr := "host=localhost port=5432 user=postgres password=123456 dbname=ecommerce sslmode=disable"
+db, err := sql.Open("postgres", connStr)
+if err != nil {
+    log.Fatal(err)
+}
+defer db.Close()
+```
+
+## Running the API
+
+Start the server:
+
+```bash
+go run ./cmd/api
+```
+
+You should see:
+
+Server running on :8080
+
+## API Endpoints
+
+### Users
+
+Register: POST /users/register
+JSON body:
+
+```json
+{
+  "firstName": "Gizem",
+  "lastName": "Güneş",
+  "email": "gizem@example.com",
+  "password": "123456"
+}
+```
+
+Login: POST /users/login
+JSON body:
+
+```json
+{
+  "email": "gizem@example.com",
+  "password": "123456"
+}
+```
+
+### Products
+
+Create Product: POST /products
+JSON body:
+
+```json
+{
+  "id": "uuid",
+  "name": "Product Name",
+  "description": "Description",
+  "price": 99.99,
+  "category": "Category"
+}
+```
+
+List Products: GET /products
+
+Update Product: PUT /products/{id}
+
+Delete Product: DELETE /products/{id}
+
+### Card
+
+Add to Cart: POST /cart
+JSON body:
+
+```json
+{
+  "cartID": "user-id",
+  "productID": "product-id",
+  "quantity": 2,
+  "unitPrice": 99.99
+}
+```
