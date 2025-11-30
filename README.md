@@ -11,10 +11,10 @@ Includes user registration & login, product management, and a shopping cart syst
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Setup with Docker](#setup-with-docker)
-- [Database Configuration](#database-configuration)
-- [Run the Application](#run-the-application)
-- [API Endpoints](#api-endpoints)
-- [Postman Example](#postman-example)
+- [Go Project Setup](#go-project-setup)
+- [Configuration](#configuration)
+- [Running the API](#running-the-api)
+- [## API Endpoints](#api-endpoints)
 
 ---
 
@@ -154,3 +154,4 @@ JSON body:
   "unitPrice": 99.99
 }
 ```
+
